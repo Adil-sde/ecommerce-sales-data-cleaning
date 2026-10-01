@@ -1,36 +1,31 @@
-# 🛒 E-Commerce Sales Data Cleaning & Exploratory Data Analysis (EDA)
+# 🛒 E-Commerce Sales Analytics & RFM Segmentation Pipeline
 
-An end-to-end data analytics project focused on cleaning, transforming, and analyzing transnational sales data for a UK-based online retail company.
+An end-to-end data analytics project focused on data cleaning, automated database pipelines, business intelligence analysis, and customer tier segmentation for transnational retail records.
 
 ---
 
 ## 📌 Project Overview
-* **Dataset:** E-Commerce Transaction Data (UK Retailer)
-* **Tools Used:** Python, Pandas, NumPy, Matplotlib, Seaborn, Kaggle Notebook
-* **Key Challenge:** Raw data contained missing customer identifiers, transaction cancellations (negative quantities/prices), duplicate logs, and unstructured date strings.
+* **Dataset:** 500K+ Transnational E-Commerce Sales Records
+* **Tech Stack:** Python (Pandas, NumPy, Matplotlib, Seaborn, SQLAlchemy), MySQL Workbench, VS Code
+* **Core Objectives:** Handle anomalous data (returns, missing IDs), automate database ingestion, calculate MoM sales growth, and perform RFM customer segmentation.
 
 ---
 
-## 🛠️ Data Cleaning Pipeline
-1. **Missing Data Handling:** Filtered out ~135k rows missing `CustomerID` to ensure accurate customer-level analytics.
-2. **Returns & Anomaly Removal:** Stripped negative and zero values across `Quantity` and `UnitPrice` (cancellations/inventory adjustments).
-3. **De-duplication:** Removed duplicate records to preserve data integrity.
-4. **Feature Engineering:**
-   * Converted raw date strings into standard datetime objects.
-   * Derived `TotalSpend` (`Quantity * UnitPrice`).
-   * Created temporal features (`YearMonth`, `Hour`) for time-series aggregation.
+## 🛠️ Data Pipeline Architecture
+1. **Data Cleaning (Pandas):** 
+   * Filtered 135K+ records with missing `CustomerID`.
+   * Removed cancellations/returns (negative `Quantity`) and zero unit prices.
+   * Engineered temporal features (`YearMonth`, `Hour`, `TotalSpend`).
+2. **Database Ingestion (SQLAlchemy):**
+   * Designed optimal schema with primary keys, indexes, and precise decimal types.
+   * Executed chunked automated data upload into MySQL database.
+3. **Business Intelligence & SQL Analytics:**
+   * **MoM Growth:** Calculated monthly revenue changes using CTEs and `LAG()` window functions.
+   * **RFM Segmentation:** Segmented buyers into VIP, Loyal, and At-Risk tiers using `NTILE(4)`.
+   * **Sales Trends:** Analyzed peak transaction hours and top international revenue streams.
 
 ---
 
-## 📊 Key Insights & Visualizations
-* **Top Products:** High-volume items are dominated by novelty homeware and party goods.
-* **International Markets:** Beyond the UK domestic market, countries like the Netherlands, Germany, and France represent the largest revenue drivers.
-* **Peak Purchasing Hours:** Order volume consistently peaks between **11:00 AM and 2:00 PM**.
-
----
-
-## 🚀 How to Run
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/Adil-sde/ecommerce-sales-data-cleaning.git
-   
+## 📊 Key SQL Queries
+* `data_cleaning.sql`: Contains schema definitions, aggregation metrics, MoM growth calculations, and the RFM segmentation model.
+*
