@@ -28,4 +28,10 @@ An end-to-end data analytics project focused on data cleaning, automated databas
 
 ## 📊 Key SQL Queries
 * `data_cleaning.sql`: Contains schema definitions, aggregation metrics, MoM growth calculations, and the RFM segmentation model.
-*
+
+---
+
+## 👤 Author & Connect
+* **Adil Ansari**
+* **GitHub:** [github.com/Adil-sde](https://github.com/Adil-sde)
+* **LinkedIn:** [linkedin.com/in/adilansarisde](https://www.linkedin.com/in/adilansarisde/)
