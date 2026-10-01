@@ -146,3 +146,4 @@ else:
     )
     fig_prod.update_layout(yaxis={"categoryorder": "total ascending"})
     st.plotly_chart(fig_prod, use_container_width=True)
+      
